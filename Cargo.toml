@@ -1,7 +1,15 @@
 [package]
-name = "vulkan"
+name = "pumice"
 version = "0.1.0"
+authors = ["Phillip Mendel"]
 edition = "2021"
+license = "MIT"
+categories = ["external-ffi-bindings", "rendering::graphics-api"]
+keywords = ["vulkan", "bindings", "graphics"]
+description = "Minimalistic Vulkan bindings for Rust"
+documentation = "https://docs.rs/pumice"
+repository = "https://github.com/K83FJ3M4/pumice"
+readme = "README.md"
 
 [dependencies]
 bumpalo = "3.16.0"
