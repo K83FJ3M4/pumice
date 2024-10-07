@@ -17,3 +17,7 @@ pub type DeviceSize = u64;
 pub type SampleMask = u32;
 type Bool32 = u32;
 type Flags = u32;
+
+// TODO
+// Add validation
+// Add pNext fields and the ability to write extensions in other crates
