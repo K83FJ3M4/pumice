@@ -2,7 +2,7 @@ use crate::{Bool32, Device, Fence, VkResult};
 use super::Result;
 
 impl Device {
-    pub unsafe fn wait_for_fences(self, fences: &[Fence], wait_all: bool, timeout: u64) -> Result<bool> {
+    pub unsafe fn wait_for_fences(self, fences: &[Fence], wait_all: bool, timeout: u64) -> Result<VkResult> {
         match vk_wait_for_fences(
             self,
             fences.len() as u32,
@@ -10,8 +10,8 @@ impl Device {
             wait_all.into(),
             timeout
         ) {
-            VkResult::Success => Ok(true),
-            VkResult::Timeout => Ok(false),
+            VkResult::Success => Ok(VkResult::Success),
+            VkResult::Timeout => Ok(VkResult::Timeout),
             result => Err(result)
         }
     }

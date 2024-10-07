@@ -2,10 +2,10 @@ use crate::{Device, Event, VkResult};
 use super::Result;
 
 impl Device {
-    pub unsafe fn get_event_status(self, event: Event) -> Result<bool> {
+    pub unsafe fn get_event_status(self, event: Event) -> Result<VkResult> {
         match vk_get_event_status(self, event) {
-            VkResult::EventSet => Ok(true),
-            VkResult::EventReset => Ok(false),
+            VkResult::EventSet => Ok(VkResult::EventSet),
+            VkResult::EventReset => Ok(VkResult::EventReset),
             result => Err(result),
         }
     }
