@@ -292,7 +292,7 @@ pub struct Array<const C: usize, T> {
 pub(crate) fn str_into_raw(s: &str, bump: &Bump) -> *const c_char {
     if s.contains('\0') { panic!("String contains null character"); }
     let data = bump.alloc_slice_fill_default(s.len() + 1);
-    data.copy_from_slice(s.as_bytes());
+    data[..s.len()].copy_from_slice(s.as_bytes());
     return data.as_ptr() as *const c_char;
 }
 

@@ -1,6 +1,6 @@
 #[repr(C)]
 #[non_exhaustive]
-#[derive(Clone, Copy, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum VkResult {
     Success = 0,
     NotReady = 1,

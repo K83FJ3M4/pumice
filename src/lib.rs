@@ -11,6 +11,7 @@ pub use enums::*;
 pub use objects::*;
 pub use structures::*;
 pub use commands::Result;
+pub use commands::MappedMemory;
 
 pub type DeviceAddress = u64;
 pub type DeviceSize = u64;

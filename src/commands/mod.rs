@@ -134,6 +134,8 @@ mod unmap_memory;
 mod update_descriptor_sets;
 mod wait_for_fences;
 
+pub use map_memory::MappedMemory;
+
 use std::result::Result as StdResult;
 use crate::VkResult;
 
