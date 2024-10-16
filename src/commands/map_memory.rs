@@ -46,6 +46,15 @@ impl Device {
     }
 }
 
+impl<T> MappedMemory<T> {
+    pub fn null() -> Self {
+        MappedMemory {
+            data: null_mut(),
+            size: 0
+        }
+    }
+}
+
 impl<T> Deref for MappedMemory<T> {
     type Target = [T];
 
