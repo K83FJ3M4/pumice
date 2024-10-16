@@ -28,11 +28,12 @@ impl Device {
             &mut data
         ) {
             VkResult::Success => {
-                if size.next_multiple_of(size_of::<T>() as u64) != size {
+                
+                if size.checked_next_multiple_of(size_of::<T>() as u64).unwrap_or(size) != size {
                     return Err(VkResult::ErrorMemoryMapFailed);
                 }
 
-                if offset.next_multiple_of(align_of::<T>() as u64) != offset {
+                if offset.checked_next_multiple_of(align_of::<T>() as u64).unwrap_or(size) != offset {
                     return Err(VkResult::ErrorMemoryMapFailed);
                 }
 
