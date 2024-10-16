@@ -1,3 +1,6 @@
+use std::error::Error;
+use std::fmt::{Debug, Display, Formatter, Result as FmtResult};
+
 #[repr(C)]
 #[non_exhaustive]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -21,4 +24,12 @@ pub enum VkResult {
     ErrorFormatNotSupported = -11,
     ErrorFragmentedPool = -12,
     ErrorUnknown = -13, 
+}
+
+impl Error for VkResult {}
+
+impl Display for VkResult {
+    fn fmt(&self, formatter: &mut Formatter) -> FmtResult {
+        Debug::fmt(self, formatter)
+    }
 }
