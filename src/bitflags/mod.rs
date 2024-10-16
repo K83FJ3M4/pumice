@@ -130,6 +130,10 @@ macro_rules! bitflags {
                 $name(0)
             }
 
+            $visibility fn contains(self, other: Self) -> bool {
+                self.0 & other.0 == other.0
+            }
+
             $($visibility const $item: Self = Self($value);)*
         }
 
