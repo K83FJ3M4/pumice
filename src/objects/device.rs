@@ -9,4 +9,8 @@ impl Device {
     pub const fn null() -> Self {
         Self(null_mut())
     }
+
+    pub fn is_null(self) -> bool {
+        self.0.is_null()
+    }
 }
