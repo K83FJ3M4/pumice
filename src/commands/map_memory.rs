@@ -39,7 +39,7 @@ impl Device {
 
                 Ok(MappedMemory {
                     data: data as *mut T,
-                    size: size as usize
+                    size: (size as usize) / size_of::<T>()
                 })
             },
             result => Err(result)
